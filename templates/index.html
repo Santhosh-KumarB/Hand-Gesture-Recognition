@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hand Gesture Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>✋ Hand Gesture Recognition</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept=".png,.jpg,.jpeg" required
+               onchange="clearResult(); previewImage(event)">
+        <br><br>
+
+        <img id="preview" src="{{ image_url }}" style="display:none;">
+
+        <br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Prediction: <span>{{ prediction }}</span></h2>
+    {% endif %}
+</div>
+
+<script>
+function previewImage(event) {
+    const img = document.getElementById("preview");
+    img.src = URL.createObjectURL(event.target.files[0]);
+    img.style.display = "block";
+}
+
+function clearResult() {
+    const result = document.querySelector("h2");
+    if (result) result.remove();
+}
+</script>
+
+</body>
+</html>
