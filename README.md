@@ -75,3 +75,9 @@ python app.py
 
 ## 📌 Note
 This web application is created as an **extra showcase implementation** for Task-04 and demonstrates real-time hand gesture recognition using deep learning.
+
+---
+
+## 🙌 Author
+
+**Santhosh Kumar B**  
